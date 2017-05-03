@@ -1,11 +1,9 @@
-{
+package filecreate
+
+var jsonMetadata = `{
   "name": "pankaj-file",
-  "type": "flogo:activity",
-  "ref": "github.com/kundankumarjha/filecreate_kundan/filecreate",
   "version": "0.0.1",
-  "title": "Test activity to create a file",
   "description": "Test activity to create a file",
-  "homepage": "https://github.com/kundankumarjha/filecreate_kundan/tree/master/filecreate",
   "inputs":[
     {
       "name": "fileName",
@@ -19,4 +17,4 @@
       "type": "boolean"
     }
   ]
-}
+}`
