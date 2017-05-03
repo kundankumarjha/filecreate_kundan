@@ -4,6 +4,9 @@ import (
 	"os"
 
 	"io"
+	
+	"net/http"
+	"net/url"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
