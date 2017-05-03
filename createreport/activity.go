@@ -5,15 +5,18 @@ import (
 
 	"io"
 
+	"net/http"
+	"net/url"
+
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
 
 // log is the default package logger
-var log = logger.GetLogger("activity-createreport-file")
+var log = logger.GetLogger("activity-getreport-details")
 
 const (
-	ivReportname = "reportName"
+	ivFilename = "fileName"
 	ovCreated  = "isCreated"
 )
 
@@ -33,18 +36,27 @@ func (a *fileActivity) Metadata() *activity.Metadata {
 
 // Eval implements activity.Activity.Eval
 func (a *fileActivity) Eval(context activity.Context) (done bool, err error) {
+	reportID = "9106427CF8384AE9B2E5"
+	url := fmt.Sprintf("https://www.concursolutions.com/api/v3.0/expense/reports/%s", reportID)
 
-	fileName := context.GetInput(ivReportname).(string)
-	content := "Hello file activity"
-	file, err := os.Create(fileName)
-	defer file.Close()
-	io.WriteString(file, content)
-
+	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
-		context.SetOutput(ovCreated, false)
-		return true, err
+		log.Fatal("NewRequest: ", err)
+		return
 	}
-	context.SetOutput(ovCreated, true)
+
+	req.Header.Set("Authorization", "OAuth 0_yUp5EggL5HKz8pXwbNllocNrM=")
+
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Fatal("Do: ", err)
+		return
+	}
+
+	defer resp.Body.Close()
+	
+	fmt.Println("Response = ", resp.Body)
 
 	return true, nil
 }

@@ -7,11 +7,11 @@ import (
 var jsonMetadata = `{
   "name": "pankaj-file",
   "type": "flogo:activity",
-  "ref": "github.com/patilpankaj212/flogo-contrib/activity/filecreate",
+  "ref": "github.com/kundankumarjha/createfile_kundan/createreport",
   "version": "0.0.1",
   "title": "Test activity to create a file",
   "description": "Test activity to create a file",
-  "homepage": "https://github.com/patilpankaj212/flogo-contrib/tree/master/activity/filecreate",
+  "homepage": "https://github.com/kundankumarjha/filecreate_kundan/tree/master/createreport",
   "inputs":[
     {
       "name": "fileName",
