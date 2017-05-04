@@ -15,8 +15,7 @@ import (
 var log = logger.GetLogger("activity-getreport-details")
 
 const (
-	ivFilename = "fileName"
-	ovCreated  = "isCreated"
+	ovStatus  = "status"
 )
 
 type fileActivity struct {

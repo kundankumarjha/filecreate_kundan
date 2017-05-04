@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"io"
-	
+
 	"net/http"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
@@ -12,21 +12,19 @@ import (
 )
 
 // log is the default package logger
-var log = logger.GetLogger("activity-pankaj-file")
+var log = logger.GetLogger("activity-getreport-details")
 
 const (
-	ivFilename = "fileName"
-	ovCreated  = "isCreated"
+	ovStatus  = "status"
 )
 
 type fileActivity struct {
 	metadata *activity.Metadata
 }
 
-// init create & register activity
-func init() {
-	md := activity.NewMetadata(jsonMetadata)
-	activity.Register(&fileActivity{metadata: md})
+// NewActivity creates a new fileActivity
+func NewActivity(metadata *activity.Metadata) activity.Activity {
+	return &fileActivity{metadata: metadata}
 }
 
 // Metadata implements activity.Activity.Metadata
@@ -36,7 +34,6 @@ func (a *fileActivity) Metadata() *activity.Metadata {
 
 // Eval implements activity.Activity.Eval
 func (a *fileActivity) Eval(context activity.Context) (done bool, err error) {
-
 	reportID := "9106427CF8384AE9B2E5"
 	url := fmt.Sprintf("https://www.concursolutions.com/api/v3.0/expense/reports/%s", reportID)
 
