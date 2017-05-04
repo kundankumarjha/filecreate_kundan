@@ -6,7 +6,6 @@ import (
 	"io"
 	
 	"net/http"
-	"net/url"
 
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
@@ -37,13 +36,13 @@ func (a *fileActivity) Metadata() *activity.Metadata {
 
 // Eval implements activity.Activity.Eval
 func (a *fileActivity) Eval(context activity.Context) (done bool, err error) {
-reportID = "9106427CF8384AE9B2E5"
+
+	reportID := "9106427CF8384AE9B2E5"
 	url := fmt.Sprintf("https://www.concursolutions.com/api/v3.0/expense/reports/%s", reportID)
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
-		log.Fatal("NewRequest: ", err)
-		return
+		return true, nil
 	}
 
 	req.Header.Set("Authorization", "OAuth 0_yUp5EggL5HKz8pXwbNllocNrM=")
@@ -51,13 +50,12 @@ reportID = "9106427CF8384AE9B2E5"
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		log.Fatal("Do: ", err)
-		return
+		return true, nil
 	}
 
 	defer resp.Body.Close()
 	
-	fmt.Println("Response = ", resp.Body)
+	fmt.Println("Response = ", resp.Status)
 
 	return true, nil
 }
