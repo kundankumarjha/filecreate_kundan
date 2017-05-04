@@ -2,8 +2,8 @@ package filecreate
 
 import (
 	"net/http"
+	"fmt"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
 
 // log is the default package logger
