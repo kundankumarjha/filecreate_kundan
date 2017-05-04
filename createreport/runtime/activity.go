@@ -1,12 +1,7 @@
 package filecreate
 
 import (
-	"os"
-
-	"io"
-
 	"net/http"
-
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/TIBCOSoftware/flogo-lib/logger"
 )
