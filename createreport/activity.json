@@ -7,6 +7,11 @@
   "description": "Test activity to create a report",
   "homepage": "https://github.com/kundankumarjha/filecreate_kundan/tree/master/createreport",
   "inputs":[
+	{
+      "name": "reportID",
+      "type": "string",
+	  "required": true
+    }
   ],
   "outputs": [
     {

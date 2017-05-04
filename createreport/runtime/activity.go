@@ -6,6 +6,11 @@ import (
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 )
 
+const (
+	ivReportID = "reportID"
+	ovStatus  = "status"
+)
+
 type fileActivity struct {
 	metadata *activity.Metadata
 }
@@ -22,7 +27,8 @@ func (a *fileActivity) Metadata() *activity.Metadata {
 
 // Eval implements activity.Activity.Eval
 func (a *fileActivity) Eval(context activity.Context) (done bool, err error) {
-	url := "https://www.concursolutions.com/api/v3.0/expense/reports/9106427CF8384AE9B2E5"
+	reportID := context.GetInput(ivReportID).(string)
+	url := fmt.Sprintf("https://www.concursolutions.com/api/v3.0/expense/reports/%s", reportID)
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return true, nil
