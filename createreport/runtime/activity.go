@@ -1,11 +1,7 @@
-package filecreate
+package createreport
 
 import (
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
-)
-
-const (
-	ovStatus  = "status"
 )
 
 type fileActivity struct {
