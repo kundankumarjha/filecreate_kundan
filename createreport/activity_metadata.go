@@ -5,24 +5,19 @@ import (
 )
 
 var jsonMetadata = `{
-  "name": "pankaj-file",
+  "name": "createreport-file",
   "type": "flogo:activity",
   "ref": "github.com/kundankumarjha/createfile_kundan/createreport",
   "version": "0.0.1",
-  "title": "Test activity to create a file",
-  "description": "Test activity to create a file",
+  "title": "Test activity to create a report",
+  "description": "Test activity to create a report",
   "homepage": "https://github.com/kundankumarjha/filecreate_kundan/tree/master/createreport",
   "inputs":[
-    {
-      "name": "fileName",
-      "type": "string",
-      "required": true
-    }
   ],
   "outputs": [
     {
-      "name": "isCreated",
-      "type": "boolean"
+      "name": "status",
+      "type": "string"
     }
   ]
 }
