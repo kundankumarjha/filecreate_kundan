@@ -1,6 +1,7 @@
 package createreport
 
 import (
+	"net/http"
 	"fmt"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 )
