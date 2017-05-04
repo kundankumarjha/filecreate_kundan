@@ -6,9 +6,6 @@ import (
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 )
 
-// log is the default package logger
-var log = logger.GetLogger("activity-getreport-details")
-
 const (
 	ovStatus  = "status"
 )
