@@ -1,4 +1,4 @@
-package filecreate
+package createreport
 
 import (
 	"testing"
